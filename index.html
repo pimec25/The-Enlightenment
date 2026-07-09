@@ -1,31 +1,158 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Enlightenment | Official Music Landing Page</title>
-  <meta name="description" content="Official landing page for The Enlightenment — music, releases, streaming links, videos, and fan updates." />
-  <meta name="theme-color" content="#08070c" />
 
-  <meta property="og:title" content="The Enlightenment | Official Music" />
-  <meta property="og:description" content="Stream the latest music from The Enlightenment and join the movement." />
+  <!-- Primary SEO -->
+  <title>The Enlightenment — Official Artist Page</title>
+  <meta name="description" content="The Enlightenment — where darkness meets light in sound. Stream the latest music on Spotify, Apple Music, YouTube, and more." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://pimecassolutions.com" />
+
+  <!-- Open Graph / Social -->
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1600&q=80" />
+  <meta property="og:url" content="https://pimecassolutions.com" />
+  <meta property="og:title" content="The Enlightenment — Official Artist Page" />
+  <meta property="og:description" content="Where darkness meets light in sound. Stream the latest music everywhere." />
+  <meta property="og:image" content="https://pimecassolutions.com/og-image.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Enlightenment — Official Artist Page" />
+  <meta name="twitter:description" content="Where darkness meets light in sound. Stream the latest music everywhere." />
+  <meta name="twitter:image" content="https://pimecassolutions.com/og-image.jpg" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicGroup",
+    "name": "The Enlightenment",
+    "url": "https://pimecassolutions.com",
+    "description": "Independent music artist delivering introspective, cinematic soundscapes where darkness meets light.",
+    "genre": ["R&B", "Hip-Hop", "Soul"]
+  }
+  </script>
+
+  <!-- Fonts: Cormorant Garamond (display) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Favicon placeholder (inline SVG) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23C8A96E' opacity='0.9'/><circle cx='50' cy='50' r='18' fill='none' stroke='%230A0A08' stroke-width='3'/><line x1='50' y1='10' x2='50' y2='32' stroke='%230A0A08' stroke-width='3'/><line x1='50' y1='68' x2='50' y2='90' stroke='%230A0A08' stroke-width='3'/></svg>" />
 
   <style>
+    /* ─── Design Tokens ──────────────────────────────── */
     :root {
-      --bg: #08070c;
-      --panel: rgba(255, 255, 255, 0.08);
-      --panel-strong: rgba(255, 255, 255, 0.14);
-      --text: #f8f4ea;
-      --muted: #c8beac;
-      --gold: #d6a441;
-      --gold-2: #ffe09a;
-      --line: rgba(255, 255, 255, 0.16);
-      --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+      /* Type scale — fluid */
+      --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+      --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+      --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+      --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
+      --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
+      --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+      --text-3xl:  clamp(2.5rem,   1rem    + 4vw,    5rem);
+      --text-hero: clamp(3.5rem,   1.5rem  + 7vw,    9rem);
+
+      /* Spacing — 4px grid */
+      --space-1:  0.25rem;
+      --space-2:  0.5rem;
+      --space-3:  0.75rem;
+      --space-4:  1rem;
+      --space-5:  1.25rem;
+      --space-6:  1.5rem;
+      --space-8:  2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+      --space-24: 6rem;
+      --space-32: 8rem;
+
+      /* Radii */
+      --radius-sm:   0.375rem;
+      --radius-md:   0.5rem;
+      --radius-lg:   0.75rem;
+      --radius-full: 9999px;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --transition: 220ms var(--ease-out);
+
+      /* Widths */
+      --content-narrow:  640px;
+      --content-default: 900px;
+
+      /* Fonts */
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'DM Sans', system-ui, sans-serif;
     }
 
-    * {
+    /* ─── Color Palette (Dark by default, theme-aware) ── */
+    :root,
+    [data-theme="dark"] {
+      --color-bg:           #0A0A08;
+      --color-surface:      #111110;
+      --color-surface-2:    #17170F;
+      --color-border:       #272720;
+      --color-text:         #E8E6DF;
+      --color-text-muted:   #7A7870;
+      --color-text-faint:   #3D3C38;
+
+      /* Gold accent — the "light" in The Enlightenment */
+      --color-gold:         #C8A96E;
+      --color-gold-dim:     #9A7D48;
+      --color-gold-glow:    rgba(200, 169, 110, 0.12);
+      --color-gold-glow-md: rgba(200, 169, 110, 0.18);
+
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+      --shadow-md: 0 6px 24px rgba(0,0,0,0.5);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,0.7);
+    }
+
+    [data-theme="light"] {
+      --color-bg:           #F5F3EE;
+      --color-surface:      #EDEBE4;
+      --color-surface-2:    #E5E3DA;
+      --color-border:       #D0CDBE;
+      --color-text:         #1A1914;
+      --color-text-muted:   #6A6859;
+      --color-text-faint:   #ABA897;
+
+      --color-gold:         #8B6B2E;
+      --color-gold-dim:     #6A4E1C;
+      --color-gold-glow:    rgba(139, 107, 46, 0.10);
+      --color-gold-glow-md: rgba(139, 107, 46, 0.15);
+
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 6px 24px rgba(0,0,0,0.10);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
+    }
+
+    /* System preference for users who haven't toggled */
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme]) {
+        --color-bg:           #F5F3EE;
+        --color-surface:      #EDEBE4;
+        --color-surface-2:    #E5E3DA;
+        --color-border:       #D0CDBE;
+        --color-text:         #1A1914;
+        --color-text-muted:   #6A6859;
+        --color-text-faint:   #ABA897;
+        --color-gold:         #8B6B2E;
+        --color-gold-dim:     #6A4E1C;
+        --color-gold-glow:    rgba(139, 107, 46, 0.10);
+        --color-gold-glow-md: rgba(139, 107, 46, 0.15);
+        --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+        --shadow-md: 0 6px 24px rgba(0,0,0,0.10);
+        --shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
+      }
+    }
+
+    /* ─── Base Reset ─────────────────────────────────── */
+    *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -33,484 +160,1186 @@
 
     html {
       scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
     }
 
     body {
-      min-height: 100vh;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 20% 10%, rgba(214, 164, 65, 0.24), transparent 28%),
-        radial-gradient(circle at 80% 0%, rgba(105, 77, 219, 0.26), transparent 32%),
-        linear-gradient(135deg, #050409 0%, #15101d 48%, #08070c 100%);
+      min-height: 100dvh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      color: var(--color-text);
+      background-color: var(--color-bg);
+      line-height: 1.6;
       overflow-x: hidden;
+    }
+
+    img, svg {
+      display: block;
+      max-width: 100%;
     }
 
     a {
       color: inherit;
       text-decoration: none;
+      transition: color var(--transition), opacity var(--transition);
     }
 
-    img {
-      max-width: 100%;
-      display: block;
+    button {
+      cursor: pointer;
+      background: none;
+      border: none;
+      font: inherit;
+      color: inherit;
     }
 
-    .noise {
+    ::selection {
+      background: var(--color-gold-glow-md);
+      color: var(--color-text);
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--color-gold);
+      outline-offset: 3px;
+      border-radius: var(--radius-sm);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* ─── Grain Texture Overlay ──────────────────────── */
+    body::before {
+      content: '';
       position: fixed;
       inset: 0;
       pointer-events: none;
-      opacity: 0.15;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
+      z-index: 0;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
     }
 
-    .container {
-      width: min(1120px, calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    header {
-      position: sticky;
+    /* ─── Header / Nav ───────────────────────────────── */
+    .site-header {
+      position: fixed;
       top: 0;
-      z-index: 10;
-      backdrop-filter: blur(18px);
-      background: rgba(8, 7, 12, 0.72);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .nav {
-      min-height: 74px;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: var(--space-4) var(--space-8);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      background: linear-gradient(to bottom, var(--color-bg) 0%, transparent 100%);
+      transition: background var(--transition);
     }
 
-    .brand {
+    .site-header.scrolled {
+      background: color-mix(in oklab, var(--color-bg) 92%, transparent);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .header-logo {
+      font-family: var(--font-display);
+      font-size: var(--text-sm);
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+    }
+
+    .header-actions {
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      gap: var(--space-4);
     }
 
-    .brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
+    .theme-toggle {
       display: grid;
       place-items: center;
-      color: #12100b;
-      background: linear-gradient(135deg, var(--gold), var(--gold-2));
-      box-shadow: 0 0 38px rgba(214, 164, 65, 0.35);
-      font-weight: 900;
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-full);
+      color: var(--color-text-muted);
+      transition: color var(--transition);
     }
 
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      color: var(--muted);
-      font-size: 0.95rem;
+    .theme-toggle:hover {
+      color: var(--color-gold);
     }
 
-    .nav-links a:hover {
-      color: var(--gold-2);
-    }
-
+    /* ─── Hero Section ───────────────────────────────── */
     .hero {
-      min-height: calc(100vh - 74px);
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      align-items: center;
-      gap: 48px;
-      padding: 78px 0;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 9px 14px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: var(--panel);
-      color: var(--gold-2);
-      font-size: 0.82rem;
-      font-weight: 800;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-    }
-
-    .pulse {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--gold-2);
-      box-shadow: 0 0 0 0 rgba(255, 224, 154, 0.7);
-      animation: pulse 1.8s infinite;
-    }
-
-    @keyframes pulse {
-      70% { box-shadow: 0 0 0 12px rgba(255, 224, 154, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(255, 224, 154, 0); }
-    }
-
-    h1 {
-      font-size: clamp(3.2rem, 8vw, 7.8rem);
-      line-height: 0.9;
-      letter-spacing: -0.07em;
-      text-transform: uppercase;
-    }
-
-    .gradient-text {
-      display: block;
-      background: linear-gradient(135deg, #ffffff 0%, var(--gold-2) 38%, var(--gold) 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .hero p {
-      max-width: 660px;
-      margin: 24px 0 32px;
-      color: var(--muted);
-      font-size: clamp(1.05rem, 2vw, 1.25rem);
-      line-height: 1.7;
-    }
-
-    .actions {
+      position: relative;
+      min-height: 100dvh;
       display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .button {
-      display: inline-flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 52px;
-      padding: 0 22px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      font-weight: 850;
-      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+      text-align: center;
+      padding: var(--space-32) var(--space-8) var(--space-20);
+      gap: var(--space-10);
     }
 
-    .button:hover {
-      transform: translateY(-2px);
-      border-color: rgba(255, 224, 154, 0.55);
+    /* Radial glow behind name */
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: min(800px, 100vw);
+      height: min(800px, 100vw);
+      background: radial-gradient(ellipse at center, var(--color-gold-glow) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
     }
 
-    .button.primary {
-      color: #15100a;
-      background: linear-gradient(135deg, var(--gold-2), var(--gold));
-      box-shadow: 0 16px 40px rgba(214, 164, 65, 0.28);
-      border: none;
-    }
+    .hero > * { position: relative; z-index: 1; }
 
-    .button.secondary {
-      background: var(--panel);
-    }
-
-    .visual {
-      position: relative;
-      min-height: 560px;
-      border: 1px solid var(--line);
-      border-radius: 34px;
+    /* Artist photo frame */
+    .artist-photo-wrap {
+      width: clamp(120px, 20vw, 200px);
+      height: clamp(120px, 20vw, 200px);
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-gold-dim);
       overflow: hidden;
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent),
-        url("https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1400&q=85") center/cover;
-      box-shadow: var(--shadow);
-      isolation: isolate;
+      position: relative;
+      box-shadow: 0 0 0 6px var(--color-gold-glow), var(--shadow-lg);
+      flex-shrink: 0;
     }
 
-    .visual::before {
-      content: "";
+    .artist-photo-placeholder {
+      width: 100%;
+      height: 100%;
+      background: var(--color-surface);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+    }
+
+    .artist-photo-placeholder svg {
+      opacity: 0.3;
+      margin: 0 auto;
+    }
+
+    .artist-photo-placeholder span {
+      font-family: var(--font-display);
+      font-size: var(--text-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-text-faint);
+    }
+
+    /* Ornamental line + The label */
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      justify-content: center;
+    }
+
+    .hero-eyebrow-line {
+      width: clamp(32px, 6vw, 60px);
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--color-gold-dim));
+    }
+
+    .hero-eyebrow-line.right {
+      background: linear-gradient(to left, transparent, var(--color-gold-dim));
+    }
+
+    .hero-eyebrow-text {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 300;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+    }
+
+    /* Main name */
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: var(--text-hero);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      line-height: 0.95;
+      color: var(--color-text);
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--color-gold);
+    }
+
+    /* Tagline */
+    .hero-tagline {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      font-weight: 300;
+      color: var(--color-text-muted);
+      letter-spacing: 0.04em;
+      max-width: 46ch;
+      margin: 0 auto;
+    }
+
+    /* ─── Stream CTA Button ──────────────────────────── */
+    .cta-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-4);
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-4) var(--space-10);
+      border: 1px solid var(--color-gold-dim);
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, var(--color-gold-glow) 0%, transparent 100%);
+      color: var(--color-gold);
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition:
+        background 300ms var(--ease-out),
+        border-color 300ms var(--ease-out),
+        box-shadow 300ms var(--ease-out),
+        transform 200ms var(--ease-out),
+        color 300ms var(--ease-out);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-btn::before {
+      content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, transparent 0%, rgba(8, 7, 12, 0.88) 100%);
-      z-index: -1;
+      background: var(--color-gold);
+      opacity: 0;
+      transition: opacity 300ms var(--ease-out);
+      border-radius: inherit;
     }
 
-    .release-card {
+    .cta-btn:hover {
+      border-color: var(--color-gold);
+      box-shadow: 0 0 32px var(--color-gold-glow-md), 0 0 2px var(--color-gold-dim);
+      transform: translateY(-2px);
+      color: var(--color-bg);
+    }
+
+    .cta-btn:hover::before {
+      opacity: 1;
+    }
+
+    .cta-btn:active {
+      transform: translateY(0);
+    }
+
+    .cta-btn span,
+    .cta-btn svg {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-hint {
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+      letter-spacing: 0.08em;
+    }
+
+    /* ─── Scroll Indicator ───────────────────────────── */
+    .scroll-indicator {
       position: absolute;
-      left: 24px;
-      right: 24px;
-      bottom: 24px;
-      padding: 24px;
-      border: 1px solid var(--line);
-      border-radius: 26px;
-      background: rgba(8, 7, 12, 0.78);
-      backdrop-filter: blur(18px);
+      bottom: var(--space-8);
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2);
+      z-index: 1;
+      animation: float 2.8s ease-in-out infinite;
     }
 
-    .release-card small {
-      color: var(--gold-2);
+    .scroll-indicator span {
+      font-size: var(--text-xs);
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-weight: 800;
+      color: var(--color-text-faint);
     }
 
-    .release-card h2 {
-      margin: 10px 0 8px;
-      font-size: clamp(1.7rem, 4vw, 3rem);
-      letter-spacing: -0.04em;
+    .scroll-indicator svg {
+      margin: 0 auto;
+      color: var(--color-gold-dim);
     }
 
-    .release-card p {
-      color: var(--muted);
-      line-height: 1.6;
+    @keyframes float {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(6px); }
     }
 
-    section {
-      padding: 74px 0;
+    /* ─── Divider ────────────────────────────────────── */
+    .divider {
+      width: 100%;
+      max-width: var(--content-narrow);
+      margin: 0 auto;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--color-border), transparent);
     }
 
-    .section-title {
-      max-width: 780px;
-      margin-bottom: 28px;
+    /* ─── Bio Section ────────────────────────────────── */
+    .bio-section {
+      padding: clamp(var(--space-16), 8vw, var(--space-32)) var(--space-8);
+      text-align: center;
+      max-width: var(--content-narrow);
+      margin: 0 auto;
     }
 
-    .section-title span {
-      color: var(--gold-2);
-      font-weight: 850;
+    .section-label {
+      font-size: var(--text-xs);
+      letter-spacing: 0.24em;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
-      font-size: 0.8rem;
+      color: var(--color-gold);
+      font-weight: 400;
+      margin-bottom: var(--space-6);
     }
 
-    .section-title h2 {
-      margin-top: 12px;
-      font-size: clamp(2rem, 5vw, 4rem);
-      line-height: 1;
-      letter-spacing: -0.05em;
+    .bio-quote {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.3;
+      color: var(--color-text);
+      margin-bottom: var(--space-8);
     }
 
-    .grid {
+    .bio-body {
+      font-size: var(--text-base);
+      font-weight: 300;
+      color: var(--color-text-muted);
+      line-height: 1.75;
+      max-width: 52ch;
+      margin: 0 auto;
+    }
+
+    /* ─── Albums / Visual Break Section ─────────────── */
+    .visual-section {
+      padding: clamp(var(--space-12), 6vw, var(--space-24)) var(--space-8);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-12);
+    }
+
+    .visual-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      gap: var(--space-3);
+      width: 100%;
+      max-width: 640px;
     }
 
-    .card {
-      padding: 28px;
-      border: 1px solid var(--line);
-      border-radius: 26px;
-      background: var(--panel);
-      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
-    }
-
-    .card h3 {
-      font-size: 1.22rem;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      color: var(--muted);
-      line-height: 1.65;
-    }
-
-    .music-links {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-
-    .music-link {
-      padding: 18px;
-      border-radius: 20px;
-      border: 1px solid var(--line);
-      background: var(--panel-strong);
-      color: var(--text);
-      font-weight: 850;
-      text-align: center;
-      transition: transform 180ms ease, background 180ms ease;
-    }
-
-    .music-link:hover {
-      transform: translateY(-3px);
-      background: rgba(214, 164, 65, 0.18);
-    }
-
-    .feature {
-      display: grid;
-      grid-template-columns: 0.88fr 1.12fr;
-      gap: 32px;
-      align-items: center;
-      padding: 34px;
-      border: 1px solid var(--line);
-      border-radius: 34px;
-      background: linear-gradient(135deg, rgba(214, 164, 65, 0.16), rgba(255, 255, 255, 0.06));
-    }
-
-    .feature-image {
+    .visual-card {
       aspect-ratio: 1;
-      border-radius: 28px;
-      background: url("https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=1200&q=85") center/cover;
-      box-shadow: var(--shadow);
+      border-radius: var(--radius-md);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+      position: relative;
+      transition: transform 300ms var(--ease-out), box-shadow 300ms var(--ease-out);
     }
 
-    .feature h2 {
-      font-size: clamp(2.1rem, 5vw, 4.4rem);
-      line-height: 0.95;
-      letter-spacing: -0.06em;
-      margin-bottom: 18px;
+    .visual-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 24px var(--color-gold-glow);
     }
 
-    .feature p {
-      color: var(--muted);
-      line-height: 1.7;
-      font-size: 1.08rem;
-      margin-bottom: 24px;
+    .visual-card-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--color-surface-2) 0%, var(--color-surface) 100%);
     }
 
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 30px 0;
-      color: var(--muted);
+    .visual-card-inner svg {
+      margin: 0 auto;
+      opacity: 0.18;
+    }
+
+    .visual-card-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: var(--space-3) var(--space-3);
+      font-size: var(--text-xs);
+      font-family: var(--font-display);
+      font-style: italic;
+      color: var(--color-text-faint);
+      background: linear-gradient(to top, var(--color-surface) 0%, transparent 100%);
       text-align: center;
     }
 
-    @media (max-width: 880px) {
-      .nav {
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 16px 0;
-      }
+    /* ─── Platforms Strip ────────────────────────────── */
+    .platforms-section {
+      padding: clamp(var(--space-12), 6vw, var(--space-20)) var(--space-8);
+      text-align: center;
+    }
 
-      .nav-links {
-        flex-wrap: wrap;
-      }
+    .platforms-section .section-label {
+      margin-bottom: var(--space-10);
+    }
 
-      .hero,
-      .feature {
-        grid-template-columns: 1fr;
-      }
+    .platforms-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-3);
+      max-width: var(--content-default);
+      margin: 0 auto;
+    }
 
-      .hero {
-        padding-top: 52px;
-      }
+    .platform-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-3) var(--space-5);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      font-weight: 400;
+      color: var(--color-text-muted);
+      letter-spacing: 0.04em;
+      background: var(--color-surface);
+      transition:
+        border-color var(--transition),
+        color var(--transition),
+        background var(--transition),
+        transform 200ms var(--ease-out);
+    }
 
-      .visual {
-        min-height: 440px;
-      }
+    .platform-pill:hover {
+      border-color: var(--color-gold-dim);
+      color: var(--color-gold);
+      background: var(--color-gold-glow);
+      transform: translateY(-2px);
+    }
 
-      .grid,
-      .music-links {
-        grid-template-columns: 1fr;
-      }
+    .platform-pill svg {
+      flex-shrink: 0;
+    }
+
+    /* ─── Footer ─────────────────────────────────────── */
+    footer {
+      padding: clamp(var(--space-12), 6vw, var(--space-20)) var(--space-8) var(--space-8);
+      text-align: center;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 300;
+      color: var(--color-gold);
+      letter-spacing: 0.06em;
+      margin-bottom: var(--space-6);
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-6);
+      margin-bottom: var(--space-8);
+      list-style: none;
+    }
+
+    .social-link {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      transition:
+        border-color var(--transition),
+        color var(--transition),
+        box-shadow var(--transition),
+        transform 200ms var(--ease-out);
+    }
+
+    .social-link:hover {
+      border-color: var(--color-gold-dim);
+      color: var(--color-gold);
+      box-shadow: 0 0 16px var(--color-gold-glow);
+      transform: translateY(-2px);
+    }
+
+    .footer-copy {
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+      letter-spacing: 0.06em;
+    }
+
+    .footer-copy a {
+      color: var(--color-gold-dim);
+      transition: color var(--transition);
+    }
+
+    .footer-copy a:hover {
+      color: var(--color-gold);
+    }
+
+    /* ─── Reveal Animation ───────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ─── Mobile Adjustments ─────────────────────────── */
+    @media (max-width: 600px) {
+      .site-header { padding: var(--space-4) var(--space-5); }
+      .hero { padding: var(--space-24) var(--space-5) var(--space-16); gap: var(--space-8); }
+      .visual-grid { grid-template-columns: repeat(3, 1fr); gap: var(--space-2); }
+      .bio-section, .visual-section, .platforms-section { padding-inline: var(--space-5); }
+      footer { padding-inline: var(--space-5); }
     }
   </style>
 </head>
-<body>
-  <div class="noise" aria-hidden="true"></div>
 
-  <header>
-    <div class="container nav">
-      <a class="brand" href="#top" aria-label="The Enlightenment home">
-        <span class="brand-mark">E</span>
-        <span>The Enlightenment</span>
-      </a>
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#music">Music</a>
-        <a href="#story">Story</a>
-        <a href="#connect">Connect</a>
-      </nav>
+<body>
+  <!-- ─── Header ──────────────────────────────────── -->
+  <header class="site-header" id="site-header">
+    <span class="header-logo" aria-label="The Enlightenment">TE</span>
+    <div class="header-actions">
+      <button
+        class="theme-toggle"
+        data-theme-toggle
+        aria-label="Switch to light mode"
+        title="Toggle theme"
+      >
+        <!-- Moon icon (default: dark mode active) -->
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
     </div>
   </header>
 
-  <main id="top">
-    <section class="container hero">
-      <div>
-        <div class="eyebrow"><span class="pulse"></span> Official Artist Page</div>
-        <h1>
-          Music that turns pain into
-          <span class="gradient-text">purpose.</span>
-        </h1>
-        <p>
-          The Enlightenment blends modern country-rock, soul, cinematic storytelling, and raw emotional truth for listeners who have survived heartbreak, loss, rejection, and the fight to become whole again.
-        </p>
-        <div class="actions">
-          <a class="button primary" href="https://pimecassolutions.com/d1n8q1p" target="_blank" rel="noopener noreferrer">Stream / Pre-Save</a>
-          <a class="button secondary" href="#music">Explore Music</a>
-        </div>
+  <!-- ─── Hero ────────────────────────────────────── -->
+  <main>
+    <section class="hero" aria-label="Artist hero">
+
+      <!-- Artist photo -->
+      <div class="artist-photo-wrap reveal" style="transition-delay: 100ms;">
+        <img src="press-photo.jpg" alt="The Enlightenment in the studio" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
       </div>
 
-      <div class="visual" role="img" aria-label="Concert stage with warm golden lights">
-        <div class="release-card">
-          <small>Featured Release</small>
-          <h2>Twisted Me</h2>
-          <p>A cinematic R&amp;B / soul story about trauma, rejection, and learning how to accept love after pain taught you to run from it.</p>
-        </div>
+      <!-- Eyebrow -->
+      <div class="hero-eyebrow reveal" style="transition-delay: 200ms;">
+        <span class="hero-eyebrow-line" aria-hidden="true"></span>
+        <span class="hero-eyebrow-text">Official Artist Page</span>
+        <span class="hero-eyebrow-line right" aria-hidden="true"></span>
       </div>
+
+      <!-- Artist Name -->
+      <h1 class="hero-title reveal" style="transition-delay: 300ms;">
+        <em>The</em> Enlightenment
+      </h1>
+
+      <!-- Tagline -->
+      <p class="hero-tagline reveal" style="transition-delay: 400ms;">
+        Where darkness meets light — introspective soundscapes built for the seeker in everyone.
+      </p>
+
+      <!-- Stream CTA -->
+      <div class="cta-wrap reveal" style="transition-delay: 500ms;">
+        <a
+          href="https://pimecassolutions.com/d1n8q1p"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="cta-btn"
+          aria-label="Listen and stream The Enlightenment on all platforms"
+        >
+          <!-- Play icon -->
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+          <span>Listen / Stream Now</span>
+        </a>
+        <p class="cta-hint">Available on all major platforms</p>
+      </div>
+
+      <!-- Scroll cue -->
+      <div class="scroll-indicator" aria-hidden="true">
+        <span>Scroll</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </div>
+
     </section>
 
-    <section id="music" class="container">
-      <div class="section-title">
-        <span>Listen Now</span>
-        <h2>One page. Every fan action.</h2>
-      </div>
-      <div class="music-links" aria-label="Music and social links">
-        <a class="music-link" href="https://pimecassolutions.com/d1n8q1p" target="_blank" rel="noopener noreferrer">Smart Link</a>
-        <a class="music-link" href="https://open.spotify.com/search/The%20Enlightenment" target="_blank" rel="noopener noreferrer">Spotify</a>
-        <a class="music-link" href="https://music.apple.com/us/search?term=The%20Enlightenment" target="_blank" rel="noopener noreferrer">Apple Music</a>
-        <a class="music-link" href="https://www.youtube.com/results?search_query=The+Enlightenment+music" target="_blank" rel="noopener noreferrer">YouTube</a>
-      </div>
+    <!-- ─── Divider ──────────────────────────────── -->
+    <div class="divider" aria-hidden="true"></div>
+
+    <!-- ─── Bio ─────────────────────────────────── -->
+    <section class="bio-section" aria-labelledby="bio-heading">
+      <p class="section-label" id="bio-label" aria-hidden="true">The Artist</p>
+      <blockquote class="bio-quote reveal">
+        "Sound is a torch in the dark —<br />carry it with intention."
+      </blockquote>
+      <p class="bio-body reveal" style="transition-delay: 100ms;">
+        The Enlightenment crafts music at the intersection of soul, introspection, and cinematic
+        production. Each release is a chapter — a meditation on truth, purpose, and the journey
+        toward clarity. Independent, uncompromising, and built for listeners who feel everything deeply.
+      </p>
     </section>
 
-    <section id="story" class="container">
-      <div class="feature">
-        <div class="feature-image" aria-hidden="true"></div>
-        <div>
-          <div class="section-title">
-            <span>The Mission</span>
-          </div>
-          <h2>Real stories. Real scars. Real healing.</h2>
-          <p>
-            The Enlightenment creates music for people who have carried silent battles for too long. Every song is built to feel honest, cinematic, and human — the kind of music that lets a listener say, “that sounds like my life.”
-          </p>
-          <a class="button primary" href="https://pimecassolutions.com/d1n8q1p" target="_blank" rel="noopener noreferrer">Join the Movement</a>
-        </div>
+    <!-- ─── Divider ──────────────────────────────── -->
+    <div class="divider" aria-hidden="true"></div>
+
+    <!-- ─── Visual Grid ──────────────────────────── -->
+    <section class="visual-section" aria-label="Releases placeholder">
+      <p class="section-label reveal">Music</p>
+      <div class="visual-grid" role="list">
+
+        <article class="visual-card reveal" role="listitem" style="transition-delay: 50ms;">
+          <img src="twisted-me.jpg" alt="Twisted Me by The Enlightenment" style="width:100%;height:100%;object-fit:cover;" />
+          <div class="visual-card-label">Upcoming Release</div>
+        </article>
+
+        <article class="visual-card reveal" role="listitem" style="transition-delay: 120ms;">
+          <img src="legacy-in-motion.jpg" alt="Legacy in Motion by The Enlightenment" style="width:100%;height:100%;object-fit:cover;" />
+          <div class="visual-card-label">EP / Album</div>
+        </article>
+
+        <article class="visual-card reveal" role="listitem" style="transition-delay: 190ms;">
+          <img src="fell-in-love-ai-girl.jpg" alt="Fell in Love with an AI Girl by The Enlightenment" style="width:100%;height:100%;object-fit:cover;" />
+          <div class="visual-card-label">Singles</div>
+        </article>
+
       </div>
+
     </section>
 
-    <section id="connect" class="container">
-      <div class="section-title">
-        <span>Connect</span>
-        <h2>Follow the journey.</h2>
-      </div>
-      <div class="grid">
-        <article class="card">
-          <h3>TikTok</h3>
-          <p>Behind-the-song stories, hooks, release clips, and emotional fan engagement.</p>
-          <p><a class="button secondary" style="margin-top:18px" href="https://www.tiktok.com/@enlightenment819" target="_blank" rel="noopener noreferrer">Follow TikTok</a></p>
-        </article>
-        <article class="card">
-          <h3>Instagram</h3>
-          <p>Visual storytelling, cover art, reels, release announcements, and artist updates.</p>
-          <p><a class="button secondary" style="margin-top:18px" href="https://www.instagram.com/enlightenment819" target="_blank" rel="noopener noreferrer">Follow Instagram</a></p>
-        </article>
-        <article class="card">
-          <h3>Bookings / Collaboration</h3>
-          <p>For vocalist, producer, student musician, playlist, press, or creative collaboration opportunities.</p>
-          <p><a class="button secondary" style="margin-top:18px" href="mailto:info@pimecineng.com">Contact</a></p>
-        </article>
-      </div>
+    <!-- ─── Divider ──────────────────────────────── -->
+    <div class="divider" aria-hidden="true"></div>
+
+    <!-- ─── Streaming Platforms ──────────────────── -->
+    <section class="platforms-section" aria-labelledby="platforms-label">
+      <p class="section-label reveal" id="platforms-label">Stream Everywhere</p>
+      <nav class="platforms-grid" aria-label="Streaming platform links">
+
+        <!-- Spotify -->
+        <a href="https://open.spotify.com/artist/2iRWGoXTQgEqyEcUJ8Asb5?si=eAkahjb7ToKVaqRXgOEbWA" target="_blank" rel="noopener noreferrer" class="platform-pill reveal" aria-label="Listen on Spotify">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.371-.721.49-1.101.248-3.021-1.854-6.82-2.273-11.3-1.244-.43.099-.861-.17-.96-.601-.099-.43.17-.861.601-.96 4.9-1.121 9.1-.639 12.5 1.441.38.24.5.721.26 1.116zm1.47-3.27c-.3.461-.921.611-1.381.311-3.461-2.131-8.732-2.75-12.822-1.504-.521.16-1.062-.14-1.222-.66-.16-.521.14-1.062.66-1.222 4.671-1.42 10.47-.731 14.471 1.711.46.3.61.921.294 1.364zm.126-3.399c-4.151-2.461-11.002-2.691-14.96-1.489a1.001 1.001 0 0 1-.589-1.912c4.551-1.401 12.12-1.131 16.9 1.721a1 1 0 0 1-1.351 1.68z"/>
+          </svg>
+          Spotify
+        </a>
+
+        <!-- Apple Music -->
+        <a href="https://music.apple.com/profile/irawaite" target="_blank" rel="noopener noreferrer" class="platform-pill reveal" style="transition-delay:60ms;" aria-label="Listen on Apple Music">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M23.994 6.124a9.23 9.23 0 0 0-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a5.022 5.022 0 0 0-1.877-.726 10.496 10.496 0 0 0-1.564-.15c-.04-.003-.083-.01-.124-.013H5.986c-.152.01-.303.017-.455.026C4.786.07 4.043.15 3.34.428 2.004.958 1.04 1.88.475 3.208a5.123 5.123 0 0 0-.37 1.548c-.052.56-.08 1.122-.085 1.684-.003.16-.01.318-.01.48v9.16c0 .16.007.318.01.48.005.562.033 1.122.085 1.684.063.65.222 1.26.487 1.838.587 1.273 1.564 2.14 2.9 2.616.49.174 1.003.27 1.527.3.558.042 1.117.057 1.677.06H18.32c.56-.003 1.12-.018 1.677-.06.524-.03 1.038-.126 1.527-.3 1.336-.477 2.313-1.343 2.9-2.616.265-.578.424-1.188.487-1.838.052-.562.08-1.122.085-1.684.003-.16.01-.318.01-.48V8.36c0-.16-.007-.318-.01-.48zM12 18.87a6.87 6.87 0 1 1 0-13.74 6.87 6.87 0 0 1 0 13.74zm6.97-12.34a1.61 1.61 0 1 1 0-3.22 1.61 1.61 0 0 1 0 3.22z"/>
+          </svg>
+          Apple Music
+        </a>
+
+        <!-- YouTube Music -->
+        <a href="https://music.youtube.com/playlist?list=OLAK5uy_kRs17iEIZ-Mj1eUARNRmrpvSYZYLxDn7A&si=QC0OJW46ZOn2Ngwm" target="_blank" rel="noopener noreferrer" class="platform-pill reveal" style="transition-delay:120ms;" aria-label="Listen on YouTube Music">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm0 19.104c-3.924 0-7.104-3.18-7.104-7.104S8.076 4.896 12 4.896s7.104 3.18 7.104 7.104-3.18 7.104-7.104 7.104zm0-13.332c-3.432 0-6.228 2.796-6.228 6.228S8.568 18.228 12 18.228s6.228-2.796 6.228-6.228S15.432 5.772 12 5.772zM9.684 15.54V8.46L15.816 12l-6.132 3.54z"/>
+          </svg>
+          YouTube Music
+        </a>
+
+        <!-- YouTube -->
+        <a href="https://www.youtube.com/@TheEnlightenment-f6i" target="_blank" rel="noopener noreferrer" class="platform-pill reveal" style="transition-delay:180ms;" aria-label="Watch on YouTube">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+          YouTube
+        </a>
+
+        <!-- TikTok -->
+        <a href="https://www.tiktok.com/@enlightenment819?_r=1&_t=ZP-97rz2uhplPz" target="_blank" rel="noopener noreferrer" class="platform-pill reveal" style="transition-delay:240ms;" aria-label="Follow on TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.74a4.85 4.85 0 0 1-1.01-.05z"/>
+          </svg>
+          TikTok
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/enlightenment819?igsh=MXV3ZWt2cmNnczQ1dQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="platform-pill reveal" style="transition-delay:300ms;" aria-label="Follow on Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+          </svg>
+          Instagram
+        </a>
+
+      </nav>
     </section>
   </main>
 
+  <!-- ─── Footer ──────────────────────────────────── -->
   <footer>
-    <div class="container">
-      © <span id="year"></span> The Enlightenment. All rights reserved.
-    </div>
+    <p class="footer-logo" aria-label="The Enlightenment">The Enlightenment</p>
+
+    <ul class="social-links" aria-label="Social media links">
+      <li>
+        <a href="https://www.instagram.com/enlightenment819?igsh=MXV3ZWt2cmNnczQ1dQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a href="https://open.spotify.com/artist/2iRWGoXTQgEqyEcUJ8Asb5?si=eAkahjb7ToKVaqRXgOEbWA" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Spotify">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.371-.721.49-1.101.248-3.021-1.854-6.82-2.273-11.3-1.244-.43.099-.861-.17-.96-.601-.099-.43.17-.861.601-.96 4.9-1.121 9.1-.639 12.5 1.441.38.24.5.721.26 1.116zm1.47-3.27c-.3.461-.921.611-1.381.311-3.461-2.131-8.732-2.75-12.822-1.504-.521.16-1.062-.14-1.222-.66-.16-.521.14-1.062.66-1.222 4.671-1.42 10.47-.731 14.471 1.711.46.3.61.921.294 1.364zm.126-3.399c-4.151-2.461-11.002-2.691-14.96-1.489a1.001 1.001 0 0 1-.589-1.912c4.551-1.401 12.12-1.131 16.9 1.721a1 1 0 0 1-1.351 1.68z"/>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a href="https://music.apple.com/profile/irawaite" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Apple Music">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M23.994 6.124a9.23 9.23 0 0 0-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a5.022 5.022 0 0 0-1.877-.726 10.496 10.496 0 0 0-1.564-.15c-.04-.003-.083-.01-.124-.013H5.986c-.152.01-.303.017-.455.026C4.786.07 4.043.15 3.34.428 2.004.958 1.04 1.88.475 3.208a5.123 5.123 0 0 0-.37 1.548c-.052.56-.08 1.122-.085 1.684-.003.16-.01.318-.01.48v9.16c0 .16.007.318.01.48.005.562.033 1.122.085 1.684.063.65.222 1.26.487 1.838.587 1.273 1.564 2.14 2.9 2.616.49.174 1.003.27 1.527.3.558.042 1.117.057 1.677.06H18.32c.56-.003 1.12-.018 1.677-.06.524-.03 1.038-.126 1.527-.3 1.336-.477 2.313-1.343 2.9-2.616.265-.578.424-1.188.487-1.838.052-.562.08-1.122.085-1.684.003-.16.01-.318.01-.48V8.36c0-.16-.007-.318-.01-.48zM12 18.87a6.87 6.87 0 1 1 0-13.74 6.87 6.87 0 0 1 0 13.74zm6.97-12.34a1.61 1.61 0 1 1 0-3.22 1.61 1.61 0 0 1 0 3.22z"/>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/@TheEnlightenment-f6i" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+        </a>
+      </li>
+    </ul>
+
+    <p class="footer-copy">
+      &copy; <span id="year"></span> The Enlightenment &mdash; All rights reserved &middot;
+      <a href="https://pimecassolutions.com/d1n8q1p" target="_blank" rel="noopener noreferrer">Stream Now</a>
+    </p>
   </footer>
 
+  <!-- ─── Scripts ─────────────────────────────────── -->
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // Copyright year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme toggle
+    (function () {
+      const toggle = document.querySelector('[data-theme-toggle]');
+      const root   = document.documentElement;
+
+      // Read system preference
+      let theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      root.setAttribute('data-theme', theme);
+      updateIcon(toggle, theme);
+
+      if (toggle) {
+        toggle.addEventListener('click', () => {
+          theme = theme === 'dark' ? 'light' : 'dark';
+          root.setAttribute('data-theme', theme);
+          toggle.setAttribute('aria-label', 'Switch to ' + (theme === 'dark' ? 'light' : 'dark') + ' mode');
+          updateIcon(toggle, theme);
+        });
+      }
+
+      function updateIcon(btn, t) {
+        if (!btn) return;
+        if (t === 'dark') {
+          btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>`;
+        } else {
+          btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+        }
+      }
+    })();
+
+    // Sticky header
+    (function () {
+      const header = document.getElementById('site-header');
+      let lastScroll = 0;
+
+      window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+        header.classList.toggle('scrolled', y > 20);
+        lastScroll = y;
+      }, { passive: true });
+    })();
+
+    // Scroll reveal
+    (function () {
+      const els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(el => el.classList.add('visible'));
+        return;
+      }
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      els.forEach(el => obs.observe(el));
+    })();
   </script>
-</body>
+<script data-pplx-inline-edit>
+(function () {
+  if (window === window.top) return;
+
+  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
+  const MAX_FONT_BYTES = 500 * 1024;
+  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
+  let scrollForwarding = false;
+  let scrollRaf = 0;
+  let trustedTopOrigin = null;
+
+  // Allow entries like "https://*.preview.i.perplexity.ai" — the wildcard
+  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
+  // across multiple labels.
+  function matchesAllowedOrigin(origin) {
+    if (!origin) return false;
+    for (const entry of allowedParentOrigins) {
+      if (!entry.includes("*")) {
+        if (entry === origin) return true;
+        continue;
+      }
+      const pattern = new RegExp(
+        "^" +
+          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
+          "$",
+      );
+      if (pattern.test(origin)) return true;
+    }
+    return false;
+  }
+
+  // Trust decision: when the sender is same-origin-visible (event.origin is a
+  // real origin like https://www.perplexity.ai) we trust event.origin directly.
+  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
+  // broker's stamped `parentOrigin` to identify the top window. The fallback
+  // is claim-only — we rely on the browser's native `targetOrigin` enforcement
+  // on the response path (see postToTrustedTop) to ensure replies can't be
+  // delivered to anyone but the actual top window of that claimed origin.
+  function getTrustedParentOrigin(event) {
+    const forwardedParentOrigin =
+      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
+    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
+    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
+  }
+
+  // All responses go to window.top with targetOrigin = the allowlisted origin.
+  // An attacker that iframes us inside their own null-origin broker can claim
+  // any parentOrigin they like, but the browser will drop the reply whenever
+  // the real top's origin doesn't match — so the screenshot never leaves.
+  function postToTrustedTop(message) {
+    if (!trustedTopOrigin) return;
+    try {
+      window.top.postMessage(message, trustedTopOrigin);
+    } catch (_error) {}
+  }
+
+  function inlineAll(original, clone) {
+    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
+
+    try {
+      const computedStyle = getComputedStyle(original);
+      // cssText on a computed style is the serialized declaration in modern
+      // Chromium/Safari — a single read beats enumerating ~400 longhand
+      // properties. Firefox returns "" here, so we fall back on empty.
+      const serialized = computedStyle.cssText;
+      if (serialized) {
+        clone.style.cssText = serialized;
+      } else {
+        const parts = new Array(computedStyle.length);
+        for (let index = 0; index < computedStyle.length; index += 1) {
+          const property = computedStyle[index];
+          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
+        }
+        clone.style.cssText = parts.join("");
+      }
+    } catch (_error) {}
+
+    const originalChildren = original.children;
+    const clonedChildren = clone.children;
+    for (
+      let index = 0;
+      index < originalChildren.length && index < clonedChildren.length;
+      index += 1
+    ) {
+      inlineAll(originalChildren[index], clonedChildren[index]);
+    }
+  }
+
+  function extractFontUrl(srcValue) {
+    const matches = [
+      ...srcValue.matchAll(
+        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
+      ),
+    ];
+    if (matches.length === 0) return null;
+    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
+    if (woff2) return woff2[1];
+    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
+    if (woff) return woff[1];
+    return matches[0][1];
+  }
+
+  // Cache resolved font URL -> data URI across captures. Fonts on a page
+  // essentially never change, and a batch run emits multiple captures back to
+  // back — without this we'd refetch + re-base64 every time.
+  const fontDataUriCache = new Map();
+  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
+
+  async function fetchAsDataUri(url) {
+    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
+    let dataUri = null;
+    try {
+      const response = await fetch(url, { mode: "cors", credentials: "omit" });
+      if (response.ok) {
+        const blob = await response.blob();
+        if (blob.size <= MAX_FONT_BYTES) {
+          dataUri = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () =>
+              resolve(typeof reader.result === "string" ? reader.result : null);
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(blob);
+          });
+        }
+      }
+    } catch (_error) {
+      dataUri = null;
+    }
+    fontDataUriCache.set(url, dataUri);
+    return dataUri;
+  }
+
+  function collectFontFaceRuleTexts() {
+    const rules = [];
+    for (const sheet of document.styleSheets) {
+      let cssRules;
+      try {
+        cssRules = sheet.cssRules;
+      } catch (_error) {
+        continue;
+      }
+      if (!cssRules) continue;
+      for (const rule of cssRules) {
+        const cssText = rule.cssText || "";
+        if (cssText.startsWith("@font-face")) rules.push(cssText);
+      }
+    }
+    return rules;
+  }
+
+  async function buildInlinedFontCss() {
+    const ruleTexts = collectFontFaceRuleTexts();
+    if (ruleTexts.length === 0) return null;
+
+    const resolved = ruleTexts.map((cssText) => {
+      if (!SRC_DECLARATION_RE.test(cssText)) return null;
+      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
+      if (!srcMatch) return null;
+      const url = extractFontUrl(srcMatch[1]);
+      if (!url) return null;
+      try {
+        return { cssText, url: new URL(url, document.baseURI).href };
+      } catch (_error) {
+        return null;
+      }
+    });
+
+    const dataUris = await Promise.all(
+      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
+    );
+
+    const inlined = [];
+    let totalBytes = 0;
+    for (let index = 0; index < resolved.length; index += 1) {
+      const entry = resolved[index];
+      const dataUri = dataUris[index];
+      if (!entry || !dataUri) continue;
+      const approxBytes = dataUri.length * 0.75;
+      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
+      totalBytes += approxBytes;
+      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
+    }
+    return inlined.length > 0 ? inlined.join("\n") : null;
+  }
+
+  function stripExternal(clone) {
+    const images = clone.querySelectorAll("img");
+    for (let index = 0; index < images.length; index += 1) {
+      const src = images[index].getAttribute("src");
+      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
+    }
+
+    const elements = clone.querySelectorAll("*");
+    for (let index = 0; index < elements.length; index += 1) {
+      const style = elements[index].style.cssText;
+      if (style && style.includes("url(")) {
+        elements[index].style.cssText = style.replace(
+          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
+          "none",
+        );
+      }
+    }
+  }
+
+  function emitScroll() {
+    scrollRaf = 0;
+    if (!scrollForwarding) return;
+    postToTrustedTop({
+      type: "INLINE_EDIT_SCROLL",
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    });
+  }
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollForwarding || scrollRaf) return;
+      scrollRaf = requestAnimationFrame(emitScroll);
+    },
+    { passive: true, capture: true },
+  );
+
+  async function handleCaptureRequest(event) {
+    const requestId = event.data.requestId;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    function postResult(dataUrl) {
+      postToTrustedTop({
+        type: "INLINE_EDIT_SCREENSHOT_RESULT",
+        requestId,
+        dataUrl,
+        scrollX,
+        scrollY,
+      });
+    }
+
+    try {
+      // Wait for any pending web fonts to resolve so both inline metrics and
+      // the @font-face inlining below see the same loaded faces.
+      if (document.fonts && document.fonts.ready) {
+        try {
+          await document.fonts.ready;
+        } catch (_error) {}
+      }
+
+      const clone = document.documentElement.cloneNode(true);
+      inlineAll(document.documentElement, clone);
+
+      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
+      for (let index = 0; index < removedNodes.length; index += 1) {
+        removedNodes[index].remove();
+      }
+
+      stripExternal(clone);
+
+      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
+      // can resolve them — external font URLs aren't fetched during
+      // foreignObject rendering, which would otherwise force a fallback face
+      // and change text metrics.
+      const inlinedFontCss = await buildInlinedFontCss();
+      if (inlinedFontCss) {
+        const styleEl = document.createElement("style");
+        styleEl.textContent = inlinedFontCss;
+        const head = clone.querySelector("head");
+        if (head) head.appendChild(styleEl);
+        else clone.insertBefore(styleEl, clone.firstChild);
+      }
+
+      const html = new XMLSerializer().serializeToString(clone);
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
+        '<foreignObject width="100%" height="100%">' +
+        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
+        `<div style="position:relative;left:-${scrollX}px;top:-${scrollY}px">` +
+        html +
+        "</div></div></foreignObject></svg>";
+      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      const image = new Image();
+      image.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        postResult(canvas.toDataURL("image/png"));
+      };
+      image.onerror = function () {
+        postResult(null);
+      };
+      image.src = svgUrl;
+    } catch (_error) {
+      postResult(null);
+    }
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data) return;
+    // Only accept messages from the direct parent frame. Blocks sibling /
+    // unrelated-window postMessage senders that could otherwise reach us.
+    if (event.source !== window.parent) return;
+
+    const trustedParentOrigin = getTrustedParentOrigin(event);
+    if (!trustedParentOrigin) return;
+    trustedTopOrigin = trustedParentOrigin;
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
+      scrollForwarding = true;
+      emitScroll();
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
+      scrollForwarding = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      scrollRaf = 0;
+      return;
+    }
+
+    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
+
+    handleCaptureRequest(event);
+  });
+})();
+
+
+</script></body>
 </html>
