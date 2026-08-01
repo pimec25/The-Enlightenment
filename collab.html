@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Request For Collaboration — The Enlightenment</title>
+  <meta name="description" content="Request a collaboration with The Enlightenment. Complete and sign the mutual NDA to get started." />
+  <link rel="canonical" href="https://pimecassolutions.com/collab" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Reset & Tokens ─────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #0A0A08;
+      --surface:     #111110;
+      --surface-2:   #1A1A18;
+      --border:      #2A2A26;
+      --gold:        #C8A96E;
+      --gold-dim:    #9A7D48;
+      --gold-glow:   rgba(200,169,110,0.15);
+      --text:        #E8E4DC;
+      --text-muted:  #9A9690;
+      --text-faint:  #5A5855;
+      --green:       #1DB954;
+      --red:         #C0392B;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'DM Sans', system-ui, sans-serif;
+      --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+      --radius:      8px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Header ─────────────────────────────────────── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 18px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      background: rgba(10,10,8,0.85);
+      backdrop-filter: blur(12px);
+    }
+
+    .header-logo {
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+
+    .header-back {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 200ms;
+    }
+    .header-back:hover { color: var(--gold); }
+    .header-back svg { flex-shrink: 0; }
+
+    /* ─── Hero ───────────────────────────────────────── */
+    .hero {
+      text-align: center;
+      padding: 64px 24px 48px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 6vw, 56px);
+      font-weight: 600;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ─── Layout ─────────────────────────────────────── */
+    .page-body {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 40px 0;
+    }
+
+    /* ─── NDA Block ──────────────────────────────────── */
+    .nda-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .nda-header {
+      padding: 20px 28px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nda-header-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--gold-glow);
+      border: 1px solid rgba(200,169,110,0.3);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--gold);
+    }
+
+    .nda-header-text h2 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .nda-header-text p {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .nda-body {
+      padding: 28px;
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      max-height: 340px;
+      overflow-y: auto;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nda-body::-webkit-scrollbar { width: 4px; }
+    .nda-body::-webkit-scrollbar-track { background: transparent; }
+    .nda-body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+    .nda-body h3 {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin: 20px 0 8px;
+      letter-spacing: 0.02em;
+    }
+
+    .nda-body h3:first-child { margin-top: 0; }
+
+    .nda-body p { margin-bottom: 10px; }
+
+    .nda-body ol {
+      padding-left: 20px;
+      margin-bottom: 10px;
+    }
+    .nda-body ol li { margin-bottom: 6px; }
+
+    .nda-scroll-hint {
+      padding: 10px 28px;
+      font-size: 11px;
+      color: var(--text-faint);
+      letter-spacing: 0.06em;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ─── Form ───────────────────────────────────────── */
+    .collab-form {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+    }
+
+    .form-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .form-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 540px) {
+      .form-grid { grid-template-columns: 1fr; }
+      .collab-form { padding: 24px 20px; }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group.full { grid-column: 1 / -1; }
+
+    label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+    }
+
+    label .required {
+      color: var(--red);
+      margin-left: 2px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    textarea,
+    select {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 14px;
+      padding: 11px 14px;
+      width: 100%;
+      transition: border-color 200ms, box-shadow 200ms;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: invert(0.6);
+      cursor: pointer;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--gold-dim);
+      box-shadow: 0 0 0 3px var(--gold-glow);
+    }
+
+    input::placeholder,
+    textarea::placeholder { color: var(--text-faint); }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+      line-height: 1.6;
+    }
+
+    /* ─── NDA Agree Checkbox ─────────────────────────── */
+    .nda-agree {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 14px 16px;
+      cursor: pointer;
+      transition: border-color 200ms;
+    }
+
+    .nda-agree:has(input:checked) {
+      border-color: var(--gold-dim);
+      background: var(--gold-glow);
+    }
+
+    .nda-agree input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      min-width: 18px;
+      margin-top: 2px;
+      accent-color: var(--gold);
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .nda-agree-text {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .nda-agree-text strong { color: var(--text); }
+
+    /* ─── Signature Block ────────────────────────────── */
+    .sig-block {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .sig-label-row {
+      padding: 10px 14px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .sig-clear-btn {
+      background: none;
+      border: none;
+      color: var(--text-faint);
+      font-size: 11px;
+      font-family: var(--font-body);
+      cursor: pointer;
+      letter-spacing: 0.06em;
+      padding: 0;
+      transition: color 200ms;
+    }
+    .sig-clear-btn:hover { color: var(--red); }
+
+    #sig-canvas {
+      display: block;
+      width: 100%;
+      height: 120px;
+      background: #0D0D0B;
+      cursor: crosshair;
+      touch-action: none;
+    }
+
+    .sig-hint {
+      padding: 8px 14px;
+      font-size: 11px;
+      color: var(--text-faint);
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+    }
+
+    /* Hidden field to store signature data */
+    #sig-data { display: none; }
+
+    /* ─── Submit Button ───────────────────────────────── */
+    .form-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 15px 24px;
+      background: var(--gold);
+      color: #0A0A08;
+      border: none;
+      border-radius: 6px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 200ms, transform 150ms, box-shadow 200ms;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .submit-btn:hover {
+      background: #D4B87A;
+      box-shadow: 0 0 24px rgba(200,169,110,0.3);
+    }
+
+    .submit-btn:active { transform: scale(0.98); }
+
+    .submit-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .form-note {
+      font-size: 11px;
+      color: var(--text-faint);
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* ─── Success State ───────────────────────────────── */
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 48px 24px;
+    }
+
+    .success-msg.visible { display: block; }
+
+    .success-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(29,185,84,0.1);
+      border: 1px solid rgba(29,185,84,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      color: var(--green);
+    }
+
+    .success-msg h3 {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .success-msg p {
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 420px;
+      margin: 0 auto 24px;
+      line-height: 1.7;
+    }
+
+    .back-home-btn {
+      display: inline-block;
+      padding: 11px 28px;
+      border: 1px solid var(--gold-dim);
+      border-radius: 6px;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 200ms, border-color 200ms;
+    }
+    .back-home-btn:hover { background: var(--gold-glow); }
+
+    /* ─── Error messages ─────────────────────────────── */
+    .field-error {
+      font-size: 11px;
+      color: var(--red);
+      display: none;
+    }
+    .form-group.has-error input,
+    .form-group.has-error textarea {
+      border-color: var(--red);
+    }
+    .form-group.has-error .field-error { display: block; }
+
+    /* ─── Footer ─────────────────────────────────────── */
+    .page-footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-faint);
+      margin-top: 40px;
+    }
+
+    /* ─── Section spacing ────────────────────────────── */
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <a href="index.html" class="header-logo">The Enlightenment</a>
+    <a href="index.html" class="header-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Artist Page
+    </a>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <p class="hero-eyebrow">Creative Partnership</p>
+    <h1 class="hero-title">Request For <em>Collaboration</em></h1>
+    <p class="hero-desc">
+      Interested in working with The Enlightenment? Review and sign the mutual non-disclosure agreement below, then complete your request. All submissions go directly to the team.
+    </p>
+  </section>
+
+  <div class="page-body">
+
+    <!-- NDA Section -->
+    <p class="section-label">Non-Disclosure Agreement</p>
+
+    <div class="nda-block">
+      <div class="nda-header">
+        <div class="nda-header-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <div class="nda-header-text">
+          <h2>Mutual Non-Disclosure Agreement</h2>
+          <p>Effective upon submission — The Enlightenment &amp; Collaborating Artist</p>
+        </div>
+      </div>
+
+      <div class="nda-body" id="nda-body">
+        <h3>1. Parties</h3>
+        <p>This Mutual Non-Disclosure Agreement ("Agreement") is entered into between <strong>The Enlightenment</strong> (artist name, managed by PIMEC Solutions, info@pimecineng.com) ("Disclosing Party / Receiving Party") and the individual signing this form ("Collaborating Artist"), collectively referred to as "the Parties."</p>
+
+        <h3>2. Purpose</h3>
+        <p>The Parties wish to explore a potential creative collaboration, including but not limited to co-writing, featured verses, production, and joint releases. In connection with this purpose, each Party may disclose certain confidential information to the other.</p>
+
+        <h3>3. Definition of Confidential Information</h3>
+        <p>"Confidential Information" means any non-public information disclosed by either Party, including but not limited to: unreleased music, song titles, lyrics, melodies, production techniques, business plans, project timelines, financial terms, marketing strategies, personal contact details, and any other creative or business materials shared in connection with this collaboration.</p>
+
+        <h3>4. Obligations of Receiving Party</h3>
+        <p>Each Party, as a Receiving Party, agrees to:</p>
+        <ol>
+          <li>Hold all Confidential Information in strict confidence;</li>
+          <li>Not disclose Confidential Information to any third party without prior written consent from the Disclosing Party;</li>
+          <li>Use Confidential Information solely for evaluating and executing the proposed collaboration;</li>
+          <li>Take reasonable precautions to protect the secrecy of the Confidential Information, no less than the precautions used to protect their own confidential information.</li>
+        </ol>
+
+        <h3>5. Exclusions</h3>
+        <p>Obligations under this Agreement do not apply to information that: (a) is or becomes publicly available through no breach of this Agreement; (b) was rightfully known to the Receiving Party before disclosure; (c) is independently developed by the Receiving Party without use of the Confidential Information; or (d) is required to be disclosed by law, provided the Receiving Party gives the Disclosing Party prompt written notice.</p>
+
+        <h3>6. Term</h3>
+        <p>This Agreement shall remain in effect for a period of <strong>two (2) years</strong> from the date of signing. Obligations regarding Confidential Information that constitutes a trade secret shall survive indefinitely.</p>
+
+        <h3>7. Intellectual Property</h3>
+        <p>This Agreement does not grant either Party any rights to the other's intellectual property. Any jointly created works shall be subject to a separate written agreement executed by both Parties prior to or at the time of creation.</p>
+
+        <h3>8. No Obligation to Collaborate</h3>
+        <p>Nothing in this Agreement obligates either Party to enter into any further agreement or to proceed with any collaboration. Either Party may withdraw from discussions at any time with written notice.</p>
+
+        <h3>9. Remedies</h3>
+        <p>Each Party acknowledges that a breach of this Agreement may cause irreparable harm for which monetary damages would be an inadequate remedy. Accordingly, each Party agrees that the non-breaching Party shall be entitled to seek equitable relief, including injunction and specific performance, in addition to all other remedies available at law or in equity.</p>
+
+        <h3>10. Governing Law</h3>
+        <p>This Agreement shall be governed by and construed in accordance with the laws of the <strong>State of Oklahoma</strong>, without regard to its conflict of law provisions.</p>
+
+        <h3>11. Entire Agreement</h3>
+        <p>This Agreement constitutes the entire agreement between the Parties with respect to the subject matter hereof and supersedes all prior discussions, negotiations, and agreements. This Agreement may not be modified except by a written instrument signed by both Parties.</p>
+
+        <h3>12. Counterparts / Electronic Signature</h3>
+        <p>The Parties agree that an electronic signature or typed name submitted through this form shall be legally binding and shall have the same force and effect as a handwritten signature.</p>
+      </div>
+
+      <div class="nda-scroll-hint">↑ Scroll to read full agreement before signing ↑</div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- Collaboration Form -->
+    <p class="section-label">Your Information &amp; Signature</p>
+
+    <div class="collab-form" id="form-container">
+      <h2 class="form-title">Complete Your Request</h2>
+      <p class="form-subtitle">All fields marked <span style="color:var(--red)">*</span> are required. Your submission is sent directly to The Enlightenment team.</p>
+
+      <form
+        id="collab-form"
+        action="https://formspree.io/f/mrenwaeq"
+        method="POST"
+        novalidate
+      >
+        <!-- Hidden meta fields -->
+        <input type="hidden" name="_subject" value="New Collaboration Request — The Enlightenment NDA" />
+        <input type="hidden" name="_next" value="https://pimecassolutions.com/collab.html?submitted=true" />
+        <input type="hidden" name="form_type" value="Collaboration NDA Request" />
+        <input type="hidden" name="nda_agreed" value="true" />
+        <input type="hidden" name="signature_data" id="sig-data" />
+
+        <div class="form-grid">
+          <!-- Full Legal Name -->
+          <div class="form-group" id="group-fullname">
+            <label for="fullname">Full Legal Name <span class="required">*</span></label>
+            <input type="text" id="fullname" name="full_legal_name" placeholder="Your full legal name" autocomplete="name" />
+            <span class="field-error">Please enter your full legal name.</span>
+          </div>
+
+          <!-- Stage / Alias Name -->
+          <div class="form-group" id="group-stagename">
+            <label for="stagename">Stage / Alias Name <span class="required">*</span></label>
+            <input type="text" id="stagename" name="stage_name" placeholder="Your artist or alias name" />
+            <span class="field-error">Please enter your stage or alias name.</span>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group" id="group-email">
+            <label for="email">Email Address <span class="required">*</span></label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email" />
+            <span class="field-error">Please enter a valid email address.</span>
+          </div>
+
+          <!-- Social / Website -->
+          <div class="form-group">
+            <label for="social">Instagram / SoundCloud / Website</label>
+            <input type="text" id="social" name="social_links" placeholder="Links to your music or profile" />
+          </div>
+
+          <!-- Genre -->
+          <div class="form-group">
+            <label for="genre">Primary Genre</label>
+            <input type="text" id="genre" name="genre" placeholder="e.g. R&amp;B, Hip-Hop, Gospel, Pop" />
+          </div>
+
+          <!-- Collaboration Type -->
+          <div class="form-group">
+            <label for="collab-type">Type of Collaboration</label>
+            <select id="collab-type" name="collaboration_type">
+              <option value="">Select one…</option>
+              <option value="Featured Verse">Featured Verse</option>
+              <option value="Co-Writing / Songwriting">Co-Writing / Songwriting</option>
+              <option value="Production / Beat">Production / Beat</option>
+              <option value="Joint Release / EP">Joint Release / EP</option>
+              <option value="Music Video">Music Video</option>
+              <option value="Live Performance">Live Performance</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <!-- Message -->
+          <div class="form-group full">
+            <label for="message">Tell Us About Your Vision <span class="required">*</span></label>
+            <textarea id="message" name="message" placeholder="Describe your idea, what you're working on, and how you see a collaboration taking shape…" rows="4"></textarea>
+            <span class="field-error">Please describe your collaboration idea.</span>
+          </div>
+
+          <!-- NDA Agreement Checkbox -->
+          <div class="form-group full" id="group-agree">
+            <label class="nda-agree" for="agree-checkbox">
+              <input type="checkbox" id="agree-checkbox" name="nda_agreement" value="I have read, understood, and agree to the Mutual Non-Disclosure Agreement" />
+              <span class="nda-agree-text">
+                <strong>I have read and agree to the Mutual Non-Disclosure Agreement</strong> above. I understand that by submitting this form, I am entering into a legally binding NDA with The Enlightenment effective immediately upon submission.
+              </span>
+            </label>
+            <span class="field-error" id="agree-error" style="display:none;color:var(--red);font-size:11px;margin-top:4px;">You must agree to the NDA before submitting.</span>
+          </div>
+
+          <!-- Signature Canvas -->
+          <div class="form-group full">
+            <label>Electronic Signature <span class="required">*</span></label>
+            <div class="sig-block">
+              <div class="sig-label-row">
+                <span>Draw your signature below</span>
+                <button type="button" class="sig-clear-btn" id="sig-clear">Clear</button>
+              </div>
+              <canvas id="sig-canvas" width="700" height="120" aria-label="Signature pad"></canvas>
+              <div class="sig-hint">Use your mouse or finger to draw your signature</div>
+            </div>
+            <span class="field-error" id="sig-error" style="display:none;color:var(--red);font-size:11px;margin-top:4px;">Please draw your signature before submitting.</span>
+          </div>
+
+          <!-- Signature Date -->
+          <div class="form-group" id="group-sigdate">
+            <label for="sigdate">Date of Signature <span class="required">*</span></label>
+            <input type="date" id="sigdate" name="signature_date" />
+            <span class="field-error">Please select the date.</span>
+          </div>
+        </div><!-- /form-grid -->
+
+        <hr class="divider" style="margin:28px 0;" />
+
+        <div class="form-actions">
+          <button type="submit" class="submit-btn" id="submit-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Submit &amp; Sign NDA
+          </button>
+          <p class="form-note">Your submission is encrypted and sent securely to info@pimecineng.com. We typically respond within 3–5 business days.</p>
+        </div>
+
+      </form>
+
+      <!-- Success Message (shown after submission) -->
+      <div class="success-msg" id="success-msg">
+        <div class="success-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>Request Received</h3>
+        <p>Your collaboration request and NDA signature have been submitted to The Enlightenment team. Expect a reply at your email within 3–5 business days.</p>
+        <a href="index.html" class="back-home-btn">Back to Artist Page</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="page-footer">
+    &copy; 2026 The Enlightenment — All rights reserved &nbsp;|&nbsp; info@pimecineng.com
+  </footer>
+
+  <script>
+    // ─── Set today's date as default ───────────────────
+    (function () {
+      const dateInput = document.getElementById('sigdate');
+      if (dateInput) {
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.value = today;
+      }
+    })();
+
+    // ─── Signature Canvas ──────────────────────────────
+    (function () {
+      const canvas = document.getElementById('sig-canvas');
+      const ctx = canvas.getContext('2d');
+      let drawing = false;
+      let hasSig = false;
+
+      // Scale for retina
+      function resizeCanvas() {
+        const rect = canvas.parentElement.getBoundingClientRect();
+        const dpr = window.devicePixelRatio || 1;
+        canvas.width = rect.width * dpr;
+        canvas.height = 120 * dpr;
+        canvas.style.width = rect.width + 'px';
+        canvas.style.height = '120px';
+        ctx.scale(dpr, dpr);
+        ctx.strokeStyle = '#C8A96E';
+        ctx.lineWidth = 2.2;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+      }
+
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+
+      function getPos(e) {
+        const rect = canvas.getBoundingClientRect();
+        if (e.touches) {
+          return {
+            x: e.touches[0].clientX - rect.left,
+            y: e.touches[0].clientY - rect.top,
+          };
+        }
+        return { x: e.clientX - rect.left, y: e.clientY - rect.top };
+      }
+
+      function start(e) {
+        e.preventDefault();
+        drawing = true;
+        hasSig = true;
+        const pos = getPos(e);
+        ctx.beginPath();
+        ctx.moveTo(pos.x, pos.y);
+      }
+
+      function draw(e) {
+        if (!drawing) return;
+        e.preventDefault();
+        const pos = getPos(e);
+        ctx.lineTo(pos.x, pos.y);
+        ctx.stroke();
+      }
+
+      function stop(e) {
+        if (drawing) {
+          drawing = false;
+          // Save signature as dataURL into hidden field
+          document.getElementById('sig-data').value = canvas.toDataURL('image/png');
+        }
+      }
+
+      canvas.addEventListener('mousedown', start);
+      canvas.addEventListener('mousemove', draw);
+      canvas.addEventListener('mouseup', stop);
+      canvas.addEventListener('mouseleave', stop);
+      canvas.addEventListener('touchstart', start, { passive: false });
+      canvas.addEventListener('touchmove', draw, { passive: false });
+      canvas.addEventListener('touchend', stop);
+
+      document.getElementById('sig-clear').addEventListener('click', function () {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        hasSig = false;
+        document.getElementById('sig-data').value = '';
+      });
+
+      // Expose hasSig check for validation
+      window.sigHasData = function () { return hasSig; };
+    })();
+
+    // ─── Form Validation & Submit ──────────────────────
+    (function () {
+      const form = document.getElementById('collab-form');
+      const submitBtn = document.getElementById('submit-btn');
+      const successMsg = document.getElementById('success-msg');
+
+      // Show success if redirected back with ?submitted=true
+      if (window.location.search.includes('submitted=true')) {
+        form.style.display = 'none';
+        successMsg.classList.add('visible');
+      }
+
+      function validate() {
+        let valid = true;
+
+        // Full name
+        const fullname = document.getElementById('fullname');
+        const gFullname = document.getElementById('group-fullname');
+        if (!fullname.value.trim()) {
+          gFullname.classList.add('has-error');
+          valid = false;
+        } else {
+          gFullname.classList.remove('has-error');
+        }
+
+        // Stage name
+        const stagename = document.getElementById('stagename');
+        const gStagename = document.getElementById('group-stagename');
+        if (!stagename.value.trim()) {
+          gStagename.classList.add('has-error');
+          valid = false;
+        } else {
+          gStagename.classList.remove('has-error');
+        }
+
+        // Email
+        const email = document.getElementById('email');
+        const gEmail = document.getElementById('group-email');
+        const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
+        if (!emailOk) {
+          gEmail.classList.add('has-error');
+          valid = false;
+        } else {
+          gEmail.classList.remove('has-error');
+        }
+
+        // Message
+        const message = document.getElementById('message');
+        const gMessage = message.closest('.form-group');
+        if (!message.value.trim()) {
+          gMessage.classList.add('has-error');
+          valid = false;
+        } else {
+          gMessage.classList.remove('has-error');
+        }
+
+        // NDA agree
+        const agree = document.getElementById('agree-checkbox');
+        const agreeError = document.getElementById('agree-error');
+        if (!agree.checked) {
+          agreeError.style.display = 'block';
+          valid = false;
+        } else {
+          agreeError.style.display = 'none';
+        }
+
+        // Signature
+        const sigError = document.getElementById('sig-error');
+        if (!window.sigHasData()) {
+          sigError.style.display = 'block';
+          valid = false;
+        } else {
+          sigError.style.display = 'none';
+        }
+
+        // Signature date
+        const sigdate = document.getElementById('sigdate');
+        const gSigdate = document.getElementById('group-sigdate');
+        if (!sigdate.value) {
+          gSigdate.classList.add('has-error');
+          valid = false;
+        } else {
+          gSigdate.classList.remove('has-error');
+        }
+
+        return valid;
+      }
+
+      form.addEventListener('submit', function (e) {
+        if (!validate()) {
+          e.preventDefault();
+          // Scroll to first error
+          const firstError = form.querySelector('.has-error, [style*="display: block"]');
+          if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          return;
+        }
+
+        // Show loading state
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="animation:spin 1s linear infinite"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
+          Submitting…
+        `;
+      });
+    })();
+  </script>
+
+  <style>
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+
+</body>
+</html>
