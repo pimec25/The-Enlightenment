@@ -693,6 +693,91 @@
       50%       { box-shadow: 0 0 0 8px rgba(30,215,96,0); }
     }
 
+    /* ─── Collaboration CTA ──────────────────────────── */
+    .collab-cta-section {
+      padding: var(--space-9) var(--space-6);
+      display: flex;
+      justify-content: center;
+      background: linear-gradient(180deg, transparent 0%, rgba(200,169,110,0.04) 50%, transparent 100%);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .collab-cta-inner {
+      max-width: 560px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-4);
+    }
+
+    .collab-cta-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 1px solid rgba(200,169,110,0.35);
+      background: rgba(200,169,110,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-gold);
+    }
+
+    .collab-cta-eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-gold-dim);
+    }
+
+    .collab-cta-title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 600;
+      line-height: 1.1;
+      color: var(--color-text);
+    }
+
+    .collab-cta-title em {
+      font-style: italic;
+      color: var(--color-gold);
+    }
+
+    .collab-cta-desc {
+      font-size: 14px;
+      color: var(--color-text-muted);
+      line-height: 1.75;
+      max-width: 480px;
+    }
+
+    .collab-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      background: var(--color-gold);
+      color: #0A0A08;
+      border-radius: 100px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 200ms var(--ease-out), box-shadow 200ms var(--ease-out), transform 150ms;
+      margin-top: var(--space-2);
+    }
+
+    .collab-cta-btn:hover {
+      background: #D4B87A;
+      box-shadow: 0 0 32px rgba(200,169,110,0.35);
+      transform: translateY(-2px);
+    }
+
+    .collab-cta-btn:active { transform: scale(0.97); }
+
     /* ─── Behind The Scenes ───────────────────────────── */
     .bts-section {
       padding: clamp(var(--space-16), 8vw, var(--space-32)) var(--space-8);
@@ -1087,6 +1172,27 @@
       </nav>
     </section>
   </main>
+
+  <!-- ─── Collaboration CTA ──────────────────────── -->
+  <section class="collab-cta-section" aria-labelledby="collab-label">
+    <div class="collab-cta-inner reveal">
+      <div class="collab-cta-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+      </div>
+      <p class="collab-cta-eyebrow" id="collab-label">Work Together</p>
+      <h2 class="collab-cta-title">Request For <em>Collaboration</em></h2>
+      <p class="collab-cta-desc">Are you an artist, producer, or songwriter with a vision? The Enlightenment is open to creative partnerships that push boundaries. Complete the NDA and submit your request to start the conversation.</p>
+      <a href="collab.html" class="collab-cta-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        Request For Collaboration
+      </a>
+    </div>
+  </section>
 
   <!-- ─── Footer ──────────────────────────────────── -->
   <footer>
