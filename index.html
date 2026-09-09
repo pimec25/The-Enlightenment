@@ -728,6 +728,30 @@
       color: var(--color-gold);
     }
 
+    .nr-bundle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      padding: 12px 30px;
+      background: var(--gold);
+      color: #0A0A08;
+      border-radius: 100px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 200ms ease, box-shadow 200ms ease, transform 150ms;
+    }
+    .nr-bundle-btn:hover {
+      background: #D4B87A;
+      box-shadow: 0 0 28px rgba(200,169,110,0.35);
+      transform: translateY(-2px);
+    }
+    .nr-bundle-btn:active { transform: scale(0.97); }
+
     .new-releases-sub {
       font-size: 14px;
       color: var(--color-text-muted);
@@ -1204,6 +1228,10 @@
       <p class="new-releases-eyebrow">Watch Dog &amp; The Enlightenment</p>
       <h2 class="new-releases-title" id="new-releases-label">New <em>Releases</em></h2>
       <p class="new-releases-sub">Three new tracks — stream, save, and share on any platform.</p>
+      <a href="new-releases.html" class="nr-bundle-btn reveal" style="transition-delay:120ms;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Stream All 3
+      </a>
     </div>
 
     <div class="new-releases-grid">
