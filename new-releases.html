@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Releases — Watch Dog &amp; The Enlightenment</title>
+  <meta name="description" content="Stream all 3 new releases from Watch Dog & The Enlightenment: Concrete Kennel, 30 Years of Silence, and 920 Pages (The Awakening)." />
+  <link rel="canonical" href="https://pimecassolutions.com/new-releases" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="New Releases — Watch Dog & The Enlightenment" />
+  <meta property="og:description" content="Stream Concrete Kennel, 30 Years of Silence, and 920 Pages (The Awakening) on all platforms." />
+  <meta property="og:image" content="https://pimecassolutions.com/concrete-kennel.jpg" />
+  <meta property="og:url" content="https://pimecassolutions.com/new-releases" />
+  <meta property="og:type" content="music.album" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #0A0A08;
+      --surface:    #111110;
+      --surface-2:  #1A1A18;
+      --border:     #2A2A26;
+      --gold:       #C8A96E;
+      --gold-dim:   #9A7D48;
+      --gold-glow:  rgba(200,169,110,0.12);
+      --text:       #E8E4DC;
+      --text-muted: #9A9690;
+      --text-faint: #5A5855;
+      --green:      #1DB954;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'DM Sans', system-ui, sans-serif;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Header ─── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      background: rgba(10,10,8,0.88);
+      backdrop-filter: blur(14px);
+    }
+
+    .header-logo {
+      font-family: var(--font-display);
+      font-size: 18px;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+
+    .header-back {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 200ms;
+    }
+    .header-back:hover { color: var(--gold); }
+
+    /* ─── Hero ─── */
+    .hero {
+      text-align: center;
+      padding: 60px 24px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(200,169,110,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 14px;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 7vw, 72px);
+      font-weight: 600;
+      line-height: 1.05;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 460px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+
+    /* Stream All pill */
+    .stream-all-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 36px;
+      background: var(--gold);
+      color: #0A0A08;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 200ms var(--ease-out), box-shadow 200ms var(--ease-out), transform 150ms;
+    }
+    .stream-all-btn:hover {
+      background: #D4B87A;
+      box-shadow: 0 0 32px rgba(200,169,110,0.35);
+      transform: translateY(-2px);
+    }
+    .stream-all-btn:active { transform: scale(0.97); }
+
+    .hero-count {
+      margin-top: 20px;
+      font-size: 11px;
+      color: var(--text-faint);
+      letter-spacing: 0.1em;
+    }
+
+    /* ─── Song Grid ─── */
+    .songs-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 24px 80px;
+    }
+
+    .song-card {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      transition: box-shadow 280ms var(--ease-out), border-color 280ms;
+    }
+
+    .song-card:hover {
+      box-shadow: 0 12px 48px rgba(0,0,0,0.5);
+      border-color: rgba(200,169,110,0.25);
+    }
+
+    @media (max-width: 640px) {
+      .song-card { grid-template-columns: 1fr; }
+      .song-cover-wrap { aspect-ratio: 1/1; height: auto; }
+    }
+
+    .song-cover-wrap {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 640px) {
+      .song-cover-wrap { height: auto; }
+    }
+
+    .song-cover {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 400ms var(--ease-out);
+    }
+
+    .song-card:hover .song-cover { transform: scale(1.04); }
+
+    .song-num {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(10,10,8,0.7);
+      border: 1px solid rgba(200,169,110,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold);
+      backdrop-filter: blur(4px);
+    }
+
+    .song-body {
+      padding: 28px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    @media (max-width: 640px) {
+      .song-body { padding: 20px; }
+    }
+
+    .song-title {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.15;
+    }
+
+    .song-artist {
+      font-size: 12px;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .song-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      max-width: 480px;
+      margin-top: 4px;
+    }
+
+    .platform-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .plat-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      transition: opacity 180ms, transform 150ms, box-shadow 180ms;
+      white-space: nowrap;
+    }
+    .plat-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+    .plat-btn:active { transform: scale(0.96); }
+
+    .plat-btn.primary {
+      background: var(--gold);
+      color: #0A0A08;
+    }
+    .plat-btn.primary:hover { box-shadow: 0 0 16px rgba(200,169,110,0.4); }
+
+    .plat-btn.ghost {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+    .plat-btn.ghost:hover { border-color: var(--gold-dim); color: var(--text); }
+
+    /* ─── Divider ─── */
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 8px 0 24px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+    }
+    .section-divider::before,
+    .section-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ─── Share row ─── */
+    .share-section {
+      text-align: center;
+      padding: 48px 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .share-title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .share-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .share-url-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      max-width: 480px;
+      width: 100%;
+    }
+
+    .share-url-text {
+      flex: 1;
+      padding: 12px 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+      background: var(--surface);
+      font-family: var(--font-body);
+      border: none;
+      outline: none;
+      cursor: text;
+      user-select: all;
+    }
+
+    .copy-btn {
+      padding: 12px 20px;
+      background: var(--gold);
+      color: #0A0A08;
+      border: none;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 180ms;
+      white-space: nowrap;
+    }
+    .copy-btn:hover { background: #D4B87A; }
+    .copy-btn.copied { background: #1DB954; color: #fff; }
+
+    /* ─── Footer ─── */
+    .page-footer {
+      text-align: center;
+      padding: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 11px;
+      color: var(--text-faint);
+    }
+
+    /* ─── Animations ─── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out);
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="header-logo">The Enlightenment</a>
+    <a href="index.html" class="header-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Artist Page
+    </a>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <p class="hero-eyebrow">Watch Dog &amp; The Enlightenment</p>
+    <h1 class="hero-title">New <em>Releases</em></h1>
+    <p class="hero-sub">Three tracks. One mission. Stream, save, and share on every platform.</p>
+    <a href="#songs" class="stream-all-btn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      Stream All 3
+    </a>
+    <p class="hero-count">3 New Tracks · Available Everywhere</p>
+  </section>
+
+  <!-- Songs -->
+  <div class="songs-section" id="songs">
+
+    <!-- 1. Concrete Kennel -->
+    <div class="song-card fade-up">
+      <div class="song-cover-wrap">
+        <span class="song-num">01</span>
+        <img src="concrete-kennel.jpg" alt="Concrete Kennel cover art" class="song-cover" />
+      </div>
+      <div class="song-body">
+        <div>
+          <h2 class="song-title">Concrete Kennel</h2>
+          <p class="song-artist">Watch Dog &amp; The Enlightenment</p>
+        </div>
+        <p class="song-desc">A raw, cinematic anthem about survival on the unforgiving streets — where loyalty is tested and truth walks beside you.</p>
+        <div class="platform-row">
+          <a href="https://music.pimecassolutions.com/oxjkkvj" target="_blank" rel="noopener noreferrer" class="plat-btn primary">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Stream Now
+          </a>
+          <a href="https://music.pimecassolutions.com/oxjkkvj" target="_blank" rel="noopener noreferrer" class="plat-btn ghost">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.371-.721.49-1.101.248-3.021-1.854-6.82-2.273-11.3-1.244-.43.099-.861-.17-.96-.601-.099-.43.17-.861.601-.96 4.9-1.121 9.1-.639 12.5 1.441.38.24.5.721.26 1.116zm1.47-3.27c-.3.461-.921.611-1.381.311-3.461-2.131-8.732-2.75-12.822-1.504-.521.16-1.062-.14-1.222-.66-.16-.521.14-1.062.66-1.222 4.671-1.42 10.47-.731 14.471 1.711.46.3.61.921.294 1.364zm.126-3.399c-4.151-2.461-11.002-2.691-14.96-1.489a1.001 1.001 0 0 1-.589-1.912c4.551-1.401 12.12-1.131 16.9 1.721a1 1 0 0 1-1.351 1.68z"/></svg>
+            Spotify
+          </a>
+          <a href="https://music.pimecassolutions.com/oxjkkvj" target="_blank" rel="noopener noreferrer" class="plat-btn ghost">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+            YouTube
+          </a>
+          <a href="https://music.pimecassolutions.com/oxjkkvj" target="_blank" rel="noopener noreferrer" class="plat-btn ghost">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M11.772 0a11.772 11.772 0 1 0 0 23.544A11.772 11.772 0 0 0 11.772 0zm5.997 8.056l-1.725.794a3.974 3.974 0 0 0-3.674-2.487 3.98 3.98 0 0 0-3.98 3.98 3.98 3.98 0 0 0 3.98 3.98 3.974 3.974 0 0 0 3.674-2.486l1.725.793a5.89 5.89 0 0 1-5.399 3.564 5.895 5.895 0 0 1-5.895-5.851 5.895 5.895 0 0 1 5.895-5.895 5.89 5.89 0 0 1 5.399 3.608z"/></svg>
+            Apple Music
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-divider fade-up">Track 2</div>
+
+    <!-- 2. 30 Years of Silence -->
+    <div class="song-card fade-up" style="transition-delay:80ms;">
+      <div class="song-cover-wrap">
+        <span class="song-num">02</span>
+        <img src="30-years-of-silence.jpg" alt="30 Years of Silence cover art" class="song-cover" />
+      </div>
+      <div class="song-body">
+        <div>
+          <h2 class="song-title">30 Years of Silence</h2>
+          <p class="song-artist">Watch Dog &amp; The Enlightenment</p>
+        </div>
+        <p class="song-desc">Some truths take a lifetime to speak. A deeply personal journey through what was never said — and what can no longer stay silent.</p>
+        <div class="platform-row">
+          <a href="https://music.pimecassolutions.com/4mpgaod" target="_blank" rel="noopener noreferrer" class="plat-btn primary">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Stream Now
+          </a>
+          <a href="https://music.pimecassolutions.com/4mpgaod" target="_blank" rel="noopener noreferrer" class="plat-btn ghost">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.371-.721.49-1.101.248-3.021-1.854-6.82-2.273-11.3-1.244-.43.099-.861-.17-.96-.601-.099-.43.17-.861.601-.96 4.9-1.121 9.1-.639 12.5 1.441.38.24.5.721.26 1.116zm1.47-3.27c-.3.461-.921.611-1.381.311-3.461-2.131-8.732-2.75-12.822-1.504-.521.16-1.062-.14-1.222-.66-.16-.521.14-1.062.66-1.222 4.671-1.42 10.47-.731 14.471 1.711.46.3.61.921.294 1.364zm.126-3.399c-4.151-2.461-11.002-2.691-14.96-1.489a1.001 1.001 0 0 1-.589-1.912c4.551-1.401 12.12-1.131 16.9 1.721a1 1 0 0 1-1.351 1.68z"/></svg>
+            Spotify
+          </a>
+          <a href="https://music.pimecassolutions.com/4mpgaod" target="_blank" rel="noopener noreferrer" class="plat-btn ghost">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+            YouTube
+          </a>
+          <a href="https://music.pimecassolutions.com/4mpgaod" target="_blank" rel="noopener noreferrer" class="plat-btn ghost">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M11.772 0a11.772 11.772 0 1 0 0 23.544A11.772 11.772 0 0 0 11.772 0zm5.997 8.056l-1.725.794a3.974 3.974 0 0 0-3.674-2.487 3.98 3.98 0 0 0-3.98 3.98 3.98 3.98 0 0 0 3.98 3.98 3.974 3.974 0 0 0 3.674-2.486l1.725.793a5.89 5.89 0 0 1-5.399 3.564 5.895 5.895 0 0 1-5.895-5.851 5.895 5.895 0 0 1 5.895-5.895 5.89 5.89 0 0 1 5.399 3.608z"/></svg>
+            Apple Music
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-divider fade-up">Track 3</div>
+
+    <!-- 3. 920 Pages -->
+    <div class="song-card fade-up" style="transition-delay:160ms;">
+      <div class="song-cover-wrap">
+        <span class="song-num">03</span>
+        <img src="920-pages.jpg" alt="920 Pages The Awakening cover art" class="song-cover" />
+      </div>
+      <div class="song-body">
+        <div>
+          <h2 class="song-title">920 Pages (The Awakening)</h2>
+          <p class="song-artist">Watch Dog &amp; The Enlightenment</p>
+        </div>
+        <p class="song-desc">920 pages of buried knowledge, hidden history, and awakened consciousness — the truth that was always there, waiting to be read.</p>
+        <div class="platform-row">
+          <a href="https://music.pimecassolutions.com/gy5mz9x" target="_blank" rel="noopener noreferrer" class="plat-btn primary">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Stream Now
+          </a>
+          <a href="https://music.pimecassolutions.com/gy5mz9x" target="_blank" rel="noopener noreferrer" class="plat-btn ghost">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.371-.721.49-1.101.248-3.021-1.854-6.82-2.273-11.3-1.244-.43.099-.861-.17-.96-.601-.099-.43.17-.861.601-.96 4.9-1.121 9.1-.639 12.5 1.441.38.24.5.721.26 1.116zm1.47-3.27c-.3.461-.921.611-1.381.311-3.461-2.131-8.732-2.75-12.822-1.504-.521.16-1.062-.14-1.222-.66-.16-.521.14-1.062.66-1.222 4.671-1.42 10.47-.731 14.471 1.711.46.3.61.921.294 1.364zm.126-3.399c-4.151-2.461-11.002-2.691-14.96-1.489a1.001 1.001 0 0 1-.589-1.912c4.551-1.401 12.12-1.131 16.9 1.721a1 1 0 0 1-1.351 1.68z"/></svg>
+            Spotify
+          </a>
+          <a href="https://music.pimecassolutions.com/gy5mz9x" target="_blank" rel="noopener noreferrer" class="plat-btn ghost">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+            YouTube
+          </a>
+          <a href="https://music.pimecassolutions.com/gy5mz9x" target="_blank" rel="noopener noreferrer" class="plat-btn ghost">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M11.772 0a11.772 11.772 0 1 0 0 23.544A11.772 11.772 0 0 0 11.772 0zm5.997 8.056l-1.725.794a3.974 3.974 0 0 0-3.674-2.487 3.98 3.98 0 0 0-3.98 3.98 3.98 3.98 0 0 0 3.98 3.98 3.974 3.974 0 0 0 3.674-2.486l1.725.793a5.89 5.89 0 0 1-5.399 3.564 5.895 5.895 0 0 1-5.895-5.851 5.895 5.895 0 0 1 5.895-5.895 5.89 5.89 0 0 1 5.399 3.608z"/></svg>
+            Apple Music
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Share section -->
+  <div class="share-section">
+    <h2 class="share-title">Share With Your People</h2>
+    <p class="share-sub">Copy this link and drop it anywhere — one URL, all 3 songs.</p>
+    <div class="share-url-box">
+      <input type="text" class="share-url-text" id="share-url" value="https://pimecassolutions.com/new-releases.html" readonly />
+      <button class="copy-btn" id="copy-btn" onclick="copyLink()">Copy Link</button>
+    </div>
+  </div>
+
+  <footer class="page-footer">
+    &copy; 2026 The Enlightenment — All rights reserved
+  </footer>
+
+  <script>
+    // Copy link
+    function copyLink() {
+      const input = document.getElementById('share-url');
+      const btn = document.getElementById('copy-btn');
+      navigator.clipboard.writeText(input.value).then(() => {
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy Link';
+          btn.classList.remove('copied');
+        }, 2000);
+      }).catch(() => {
+        input.select();
+        document.execCommand('copy');
+      });
+    }
+
+    // Scroll-triggered fade-up
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
