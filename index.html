@@ -1283,7 +1283,7 @@
       <div class="visual-grid" role="list">
 
         <article class="visual-card presave-card reveal" role="listitem" style="transition-delay: 50ms;" id="presave-card">
-          <div class="visual-card-top-label">Upcoming Release</div>
+          <div class="visual-card-top-label">Released</div>
           <a
             href="#"
             class="presave-link"
@@ -1557,7 +1557,7 @@
           .then(data => {
             if (data.thumbnail_url && cover) {
               cover.src = data.thumbnail_url;
-              cover.alt = (data.title || 'Upcoming Release') + ' — Pre-Save Now';
+              cover.alt = (data.title || 'Released') + ' — Pre-Save Now';
             }
             if (data.title && trackInfo) {
               // data.title is usually "Track Name" or "Track Name · Artist"
