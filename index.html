@@ -693,6 +693,159 @@
       50%       { box-shadow: 0 0 0 8px rgba(30,215,96,0); }
     }
 
+    /* ─── New Releases Section ────────────────────────── */
+    .new-releases-section {
+      padding: var(--space-16) var(--space-8);
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .new-releases-header {
+      text-align: center;
+      margin-bottom: var(--space-10);
+    }
+
+    .new-releases-eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-gold-dim);
+      margin-bottom: var(--space-3);
+    }
+
+    .new-releases-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 600;
+      line-height: 1.1;
+      color: var(--color-text);
+      margin-bottom: var(--space-3);
+    }
+
+    .new-releases-title em {
+      font-style: italic;
+      color: var(--color-gold);
+    }
+
+    .new-releases-sub {
+      font-size: 14px;
+      color: var(--color-text-muted);
+    }
+
+    .new-releases-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .new-releases-grid { grid-template-columns: 1fr; max-width: 400px; }
+      .new-releases-section { padding-inline: var(--space-5); }
+    }
+
+    .nr-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 280ms var(--ease-out), box-shadow 280ms var(--ease-out);
+    }
+
+    .nr-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(200,169,110,0.2);
+    }
+
+    .nr-card-link {
+      display: block;
+      position: relative;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+    }
+
+    .nr-cover {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 400ms var(--ease-out);
+    }
+
+    .nr-card:hover .nr-cover {
+      transform: scale(1.05);
+    }
+
+    .nr-play-btn {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.45);
+      opacity: 0;
+      transition: opacity 250ms;
+      color: #fff;
+    }
+
+    .nr-play-btn svg {
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
+      width: 48px;
+      height: 48px;
+    }
+
+    .nr-card:hover .nr-play-btn {
+      opacity: 1;
+    }
+
+    .nr-info {
+      padding: var(--space-4) var(--space-5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .nr-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--color-text);
+      line-height: 1.2;
+    }
+
+    .nr-artist {
+      font-size: 12px;
+      color: var(--color-text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    .nr-stream-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: var(--space-2);
+      padding: 9px 18px;
+      background: var(--color-gold);
+      color: #0A0A08;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      align-self: flex-start;
+      transition: background 200ms, box-shadow 200ms;
+    }
+
+    .nr-stream-btn:hover {
+      background: #D4B87A;
+      box-shadow: 0 0 20px rgba(200,169,110,0.35);
+    }
+
     /* ─── Collaboration CTA ──────────────────────────── */
     .collab-cta-section {
       padding: var(--space-9) var(--space-6);
@@ -1172,6 +1325,85 @@
       </nav>
     </section>
   </main>
+
+  <!-- ─── New Releases ───────────────────────────── -->
+  <section class="new-releases-section" aria-labelledby="new-releases-label">
+    <div class="new-releases-header reveal">
+      <p class="new-releases-eyebrow">Watch Dog &amp; The Enlightenment</p>
+      <h2 class="new-releases-title" id="new-releases-label">New <em>Releases</em></h2>
+      <p class="new-releases-sub">Three new tracks — stream, save, and share on any platform.</p>
+    </div>
+
+    <div class="new-releases-grid">
+
+      <!-- Concrete Kennel -->
+      <article class="nr-card reveal" style="transition-delay:0ms;">
+        <a href="https://music.pimecassolutions.com/oxjkkvj"
+           target="_blank" rel="noopener noreferrer" class="nr-card-link" aria-label="Stream Concrete Kennel">
+          <div class="nr-cover-wrap">
+            <img src="concrete-kennel.jpg" alt="Concrete Kennel cover art" class="nr-cover" />
+            <div class="nr-play-btn" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+        </a>
+        <div class="nr-info">
+          <h3 class="nr-title">Concrete Kennel</h3>
+          <p class="nr-artist">Watch Dog &amp; The Enlightenment</p>
+          <a href="https://music.pimecassolutions.com/oxjkkvj"
+             target="_blank" rel="noopener noreferrer" class="nr-stream-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Stream Now
+          </a>
+        </div>
+      </article>
+
+      <!-- 30 Years of Silence -->
+      <article class="nr-card reveal" style="transition-delay:100ms;">
+        <a href="https://music.pimecassolutions.com/4mpgaod"
+           target="_blank" rel="noopener noreferrer" class="nr-card-link" aria-label="Stream 30 Years of Silence">
+          <div class="nr-cover-wrap">
+            <img src="30-years-of-silence.jpg" alt="30 Years of Silence cover art" class="nr-cover" />
+            <div class="nr-play-btn" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+        </a>
+        <div class="nr-info">
+          <h3 class="nr-title">30 Years of Silence</h3>
+          <p class="nr-artist">Watch Dog &amp; The Enlightenment</p>
+          <a href="https://music.pimecassolutions.com/4mpgaod"
+             target="_blank" rel="noopener noreferrer" class="nr-stream-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Stream Now
+          </a>
+        </div>
+      </article>
+
+      <!-- 920 Pages (The Awakening) -->
+      <article class="nr-card reveal" style="transition-delay:200ms;">
+        <a href="https://music.pimecassolutions.com/gy5mz9x"
+           target="_blank" rel="noopener noreferrer" class="nr-card-link" aria-label="Stream 920 Pages The Awakening">
+          <div class="nr-cover-wrap">
+            <img src="920-pages.jpg" alt="920 Pages The Awakening cover art" class="nr-cover" />
+            <div class="nr-play-btn" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+        </a>
+        <div class="nr-info">
+          <h3 class="nr-title">920 Pages (The Awakening)</h3>
+          <p class="nr-artist">Watch Dog &amp; The Enlightenment</p>
+          <a href="https://music.pimecassolutions.com/gy5mz9x"
+             target="_blank" rel="noopener noreferrer" class="nr-stream-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Stream Now
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </section>
 
   <!-- ─── Collaboration CTA ──────────────────────── -->
   <section class="collab-cta-section" aria-labelledby="collab-label">
